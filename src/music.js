@@ -1,6 +1,6 @@
 const { BASE_URL } = import.meta.env;
 
-const forLessVolume = 0.9;
+const forLessVolume = 0.1;
 
 export const audioClick = new Audio(BASE_URL + "/mouse-click.mp3");
 audioClick.volume -= forLessVolume;
