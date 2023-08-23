@@ -11,6 +11,7 @@ function App() {
   console.log("render");
   const [board, setBoard] = useState(() => {
     // Los hooks no pueden estar anidados 👀
+    // setBoard es asincrono
     console.log("inicializando estado del tablero");
     const boardFromStorage = window.localStorage.getItem("board");
     return boardFromStorage

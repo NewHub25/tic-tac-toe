@@ -8,7 +8,8 @@ audioClick.volume -= forLessVolume;
 export const audioSurprise = new Audio(BASE_URL + "/sound-effect-thriller.mp3");
 audioSurprise.volume -= forLessVolume;
 
-export const audioNewGame = new Audio(BASE_URL + "/interface-124464.mp3");
+export const audioNewGame = new Audio(BASE_URL + "/interface-124464_(mp3cut.net).mp3");
+audioNewGame.currentTime = 0.2;
 audioNewGame.volume -= forLessVolume;
 
 export const audioWinner = new Audio(BASE_URL + "/guitar-riff-159089.mp3");
