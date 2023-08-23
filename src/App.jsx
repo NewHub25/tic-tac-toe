@@ -5,13 +5,7 @@ import { Square } from "./components/Square";
 import { WinnerModal } from "./components/WinnerModal";
 import { TURNS } from "./constants";
 import { checkWinnerFrom, checkEndGame } from "./logic/board";
-
-const audioClick = new Audio(import.meta.env.BASE_URL+"/mouse-click.mp3");
-audioClick.volume += -0.9;
-const audioSurprise = new Audio(import.meta.env.BASE_URL+"/sound-effect-thriller.mp3");
-audioSurprise.volume += -0.9; 
-const audionewGame = new Audio(import.meta.env.BASE_URL+"/notification-sound-7062.mp3");
-audionewGame.volume += -0.9;
+import { audioClick, audioSurprise, audioNewGame, audioWinner } from "./music";
 
 function App() {
   console.log("render");
@@ -49,6 +43,7 @@ function App() {
     if (newWinner) {
       confetti({ particleCount: 100, spread: 60 });
       setWinner(newWinner);
+      audioWinner.play();
     } else if (checkEndGame(newBoard)) {
       setWinner(false);
       audioSurprise.play();
@@ -59,7 +54,7 @@ function App() {
     setBoard(Array(9).fill(null));
     setTurn(TURNS.X);
     setWinner(null);
-    audionewGame.play();
+    audioNewGame.play();
     window.localStorage.removeItem("board");
     window.localStorage.removeItem("turn");
   };
