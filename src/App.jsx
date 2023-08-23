@@ -6,11 +6,11 @@ import { WinnerModal } from "./components/WinnerModal";
 import { TURNS } from "./constants";
 import { checkWinnerFrom, checkEndGame } from "./logic/board";
 
-const audioClick = new Audio("/mouse-click.mp3");
+const audioClick = new Audio(import.meta.env.BASE_URL+"/mouse-click.mp3");
 audioClick.volume += -0.9;
-const audioSurprise = new Audio("/sound-effect-thriller.mp3");
-audioSurprise.volume += -0.9;
-const audionewGame = new Audio("/notification-sound-7062.mp3");
+const audioSurprise = new Audio(import.meta.env.BASE_URL+"/sound-effect-thriller.mp3");
+audioSurprise.volume += -0.9; 
+const audionewGame = new Audio(import.meta.env.BASE_URL+"/notification-sound-7062.mp3");
 audionewGame.volume += -0.9;
 
 function App() {
