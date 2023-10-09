@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import confetti from "canvas-confetti";
 
-import { Square } from "./components/Square";
-import { WinnerModal } from "./components/WinnerModal";
+import { Square } from "./components/square";
+import { WinnerModal } from "./components/winner-modal";
 import { TURNS } from "./constants";
 import { checkWinnerFrom, checkEndGame } from "./logic/board";
 import { audioClick, audioSurprise, audioNewGame, audioWinner } from "./music";
@@ -11,7 +11,6 @@ function App() {
   const [board, setBoard] = useState(() => {
     // Los hooks no pueden estar anidados 👀
     // setBoard es asincrono
-    console.log("inicializando estado del tablero");
     const boardFromStorage = window.localStorage.getItem("board");
     return boardFromStorage
       ? JSON.parse(boardFromStorage)
@@ -59,13 +58,6 @@ function App() {
     window.localStorage.removeItem("turn");
   };
 
-  useEffect(() => {
-    console.log("useEffect");
-    return ()=>{
-      console.log('cleanup')
-    }
-  }, []);
-  
   return (
     <main className="board">
       <h1>Tic tac toe</h1>

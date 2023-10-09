@@ -1,4 +1,4 @@
-import { Square } from "./Square";
+import { Square } from "./square";
 
 export const WinnerModal = ({ winner, resetGame }) => {
   if (winner === null) return null;
