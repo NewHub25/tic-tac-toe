@@ -3,25 +3,16 @@ import confetti from "canvas-confetti";
 
 import { Square } from "./components/square";
 import { WinnerModal } from "./components/winner-modal";
-import { TURNS } from "./constants";
+import { TURNS, AVATARS } from "./constants";
 import { checkWinnerFrom, checkEndGame } from "./logic/board";
 import { audioClick, audioSurprise, audioNewGame, audioWinner } from "./music";
+import { useTurn } from "./hooks/useTurn";
+import { useBoard } from "./hooks/useBoard";
+import AvatarDialog from "./components/dialog";
 
 function App() {
-  const [board, setBoard] = useState(() => {
-    // Los hooks no pueden estar anidados 👀
-    // setBoard es asincrono
-    const boardFromStorage = window.localStorage.getItem("board");
-    return boardFromStorage
-      ? JSON.parse(boardFromStorage)
-      : Array(9).fill(null);
-  });
-
-  const [turn, setTurn] = useState(() => {
-    const turnFromStorage = window.localStorage.getItem("turn");
-    return turnFromStorage ?? TURNS.X;
-  });
-
+  const { board, setBoard } = useBoard();
+  const { turn, setTurn } = useTurn();
   const [winner, setWinner] = useState(null);
 
   const updateBoard = (index) => {
@@ -60,20 +51,32 @@ function App() {
 
   return (
     <main className="board">
-      <h1>Tic tac toe</h1>
+      <h1>3 en raya</h1>
       <button onClick={resetGame}>Empezar de nuevo</button>
       <section className="game">
         {board.map((square, index) => {
           return (
-            <Square key={index} updateBoard={updateBoard} index={index}>
+            <Square key={index} handleClick={() => updateBoard(index)}>
               {square}
             </Square>
           );
         })}
       </section>
       <section className="turn">
-        <Square isSelected={turn === TURNS.X}>{TURNS.X}</Square>
-        <Square isSelected={turn === TURNS.O}>{TURNS.O}</Square>
+        <Square
+          handleClick={(e) => e.currentTarget.nextElementSibling.showModal()}
+          isSelected={turn === TURNS.X}
+        >
+          {TURNS.X}
+        </Square>
+        <AvatarDialog player={"X"} setBoard={setBoard} setTurn={setTurn} />
+        <Square
+          isSelected={turn === TURNS.O}
+          handleClick={(e) => e.currentTarget.nextElementSibling.showModal()}
+        >
+          {TURNS.O}
+        </Square>
+        <AvatarDialog player={"O"} setBoard={setBoard} setTurn={setTurn} />
       </section>
       <WinnerModal winner={winner} resetGame={resetGame} />
     </main>
