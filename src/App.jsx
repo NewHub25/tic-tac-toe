@@ -1,14 +1,14 @@
 import { useState } from "react";
 import confetti from "canvas-confetti";
 
-import { Square } from "./components/square";
-import { WinnerModal } from "./components/winner-modal";
-import { TURNS } from "./constants";
-import { checkWinnerFrom, checkEndGame } from "./logic/board";
-import { audioClick, audioSurprise, audioNewGame, audioWinner } from "./music";
-import { useTurn } from "./hooks/useTurn";
-import { useBoard } from "./hooks/useBoard";
-import AvatarDialog from "./components/dialog";
+import { Square } from "./components/square.jsx";
+import { WinnerModal } from "./components/winner-modal.jsx.jsx";
+import { TURNS } from "./constants.js.js";
+import { checkWinnerFrom, checkEndGame } from "./logic/board.js";
+import { audioClick, audioSurprise, audioNewGame, audioWinner } from "./music.js";
+import { useTurn } from "./hooks/useTurn.js";
+import { useBoard } from "./hooks/useBoard.js";
+import AvatarDialog from "./components/dialog.jsx";
 
 function App() {
   const { board, setBoard } = useBoard();

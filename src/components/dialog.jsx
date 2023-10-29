@@ -1,6 +1,6 @@
-import { AVATARS, TURNS } from "../constants";
-import { audioClick } from "../music";
-import { Square } from "./square";
+import { AVATARS, TURNS } from "../constants.js";
+import { audioClick } from "../music.js";
+import { Square } from "./square.jsx";
 
 const AvatarDialog = ({ player, setBoard, setTurn }) => {
   return (
