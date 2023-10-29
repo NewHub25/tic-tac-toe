@@ -152,10 +152,6 @@ dialog .avatars .square {
     opacity: 0;
     transform: translateX(-1rem);
   }
-  tp {
-    opacity: 1;
-    transform: translateX(0);
-  }
 }
 
 @keyframes blurIn {
