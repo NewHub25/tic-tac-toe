@@ -2,8 +2,8 @@ import { useState } from "react";
 import confetti from "canvas-confetti";
 
 import { Square } from "./components/square.jsx";
-import { WinnerModal } from "./components/winner-modal.jsx.jsx";
-import { TURNS } from "./constants.js.js";
+import { WinnerModal } from "./components/winner-modal.jsx";
+import { TURNS } from "./constants.js";
 import { checkWinnerFrom, checkEndGame } from "./logic/board.js";
 import { audioClick, audioSurprise, audioNewGame, audioWinner } from "./music.js";
 import { useTurn } from "./hooks/useTurn.js";
