@@ -6,3 +6,4 @@ export const Square = ({ children, handleClick, isSelected }) => {
     </div>
   );
 };
+//No hubo ningun error visto dentro de Vite con el cambio de nombre de 'Square' a 'square', pues me mostró el preview como si nada
