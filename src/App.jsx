@@ -3,7 +3,7 @@ import confetti from "canvas-confetti";
 
 import { Square } from "./components/square";
 import { WinnerModal } from "./components/winner-modal";
-import { TURNS, AVATARS } from "./constants";
+import { TURNS } from "./constants";
 import { checkWinnerFrom, checkEndGame } from "./logic/board";
 import { audioClick, audioSurprise, audioNewGame, audioWinner } from "./music";
 import { useTurn } from "./hooks/useTurn";
@@ -34,6 +34,7 @@ function App() {
       confetti({ particleCount: 100, spread: 60 });
       setWinner(newWinner);
       audioWinner.play();
+      navigator.vibrate(200);
     } else if (checkEndGame(newBoard)) {
       setWinner(false);
       audioSurprise.play();
@@ -64,8 +65,8 @@ function App() {
       </section>
       <section className="turn">
         <Square
-          handleClick={(e) => e.currentTarget.nextElementSibling.showModal()}
           isSelected={turn === TURNS.X}
+          handleClick={(e) => e.currentTarget.nextElementSibling.showModal()}
         >
           {TURNS.X}
         </Square>
