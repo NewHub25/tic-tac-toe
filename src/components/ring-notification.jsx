@@ -10,7 +10,7 @@ export const ringNotification = forwardRef(function notificationSuccess(
       <p className="ring-notification">
         <img
           className="animate__animated animate__wobble animate__infinite animate__faster animate__repeat-3"
-          src="/alarm-clock.png"
+          src="alarm-clock.png"
           alt="alarm"
         />
         {message}

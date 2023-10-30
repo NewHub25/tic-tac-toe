@@ -1,8 +1,8 @@
 .notistack-SnackbarContainer {
   width: min(80%, 300px);
-  top: 3rem;
   left: min(10vw, 50px);
-  bottom: initial;
+  top: 2rem;
+  bottom: initial !important;
 }
 .ring-notification {
   background-color: #009032;

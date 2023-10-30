@@ -12,9 +12,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       Components={{
         ringAlert: ringNotification,
       }}
-      iconVariant={{
-        ringAlert: "✅",
-      }}
     >
       <App />
     </SnackbarProvider>
