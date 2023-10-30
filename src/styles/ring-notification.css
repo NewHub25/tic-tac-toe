@@ -1,0 +1,29 @@
+.notistack-SnackbarContainer {
+  width: min(80%, 300px);
+  top: 3rem;
+  left: min(10vw, 50px);
+  bottom: initial;
+}
+.ring-notification {
+  background-color: #009032;
+  padding: 5px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 0.9em;
+}
+.ring-notification img {
+  width: 40px;
+  filter: drop-shadow(1px 2px #333);
+}
+.ring-notification span {
+  font-size: 1.5rem;
+}
+.ring-notification button {
+  background-color: #333;
+  outline: none;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+}

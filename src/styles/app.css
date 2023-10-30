@@ -1,3 +1,5 @@
+@import url(./ring-notification.css);
+
 .board {
   width: fit-content;
   margin: 40px auto;
@@ -109,14 +111,14 @@ dialog {
   border-radius: 1rem;
   position: relative;
   background-color: #222;
-  animation-name: fadeIn;
-  animation-duration: 700ms;
+  animation-name: dialogFadeIn;
+  animation-duration: 900ms;
   animation-fill-mode: both;
 }
 dialog::backdrop {
   background-image: linear-gradient(to bottom, #00903233 30%, #333);
-  animation-name: blurIn;
-  animation-duration: 700ms;
+  animation-name: dialogBlurIn;
+  animation-duration: 900ms;
   animation-fill-mode: both;
 }
 dialog .close-btn {
@@ -147,14 +149,14 @@ dialog .avatars .square {
   height: 50px;
 }
 
-@keyframes fadeIn {
+@keyframes dialogFadeIn {
   from {
     opacity: 0;
-    transform: translateX(-1rem);
+    transform: translateX(-5rem);
   }
 }
 
-@keyframes blurIn {
+@keyframes dialogBlurIn {
   from {
     backdrop-filter: blur(0);
   }

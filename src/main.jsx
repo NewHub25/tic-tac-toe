@@ -2,10 +2,22 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
+import { SnackbarProvider } from "notistack";
+import { ringNotification } from "./components/ring-notification.jsx";
+import 'animate.css'
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+    <SnackbarProvider
+      Components={{
+        ringAlert: ringNotification,
+      }}
+      iconVariant={{
+        ringAlert: "✅",
+      }}
+    >
+      <App />
+    </SnackbarProvider>
   </React.StrictMode>
 );
 

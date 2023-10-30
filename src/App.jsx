@@ -1,19 +1,34 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import confetti from "canvas-confetti";
 
 import { Square } from "./components/Square.jsx";
 import { WinnerModal } from "./components/winner-modal.jsx";
 import { TURNS } from "./constants.js";
 import { checkWinnerFrom, checkEndGame } from "./logic/board.js";
-import { audioClick, audioSurprise, audioNewGame, audioWinner } from "./music.js";
+import {
+  audioClick,
+  audioSurprise,
+  audioNewGame,
+  audioWinner,
+} from "./music.js";
 import { useTurn } from "./hooks/useTurn.js";
 import { useBoard } from "./hooks/useBoard.js";
 import AvatarDialog from "./components/dialog.jsx";
+import { useSnackbar } from "notistack";
 
 function App() {
   const { board, setBoard } = useBoard();
   const { turn, setTurn } = useTurn();
   const [winner, setWinner] = useState(null);
+  const { enqueueSnackbar } = useSnackbar();
+
+  useEffect(() => {
+    enqueueSnackbar("Dando click sobre los emojis puedes cambiarlos", {
+      preventDuplicate: true,
+      persist: true,
+      variant: "ringAlert",
+    });
+  }, []);
 
   const updateBoard = (index) => {
     if (board[index] || winner) return;
